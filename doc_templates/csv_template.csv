@@ -1,0 +1,2 @@
+{d[i].movieName},{d[i].actors[i].firstname},{d[i].actors[i].lastname},{d[i].actors[i].test}
+{d[i+1].movieName},{d[i+1].actors[i+1].firstname}
