@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "carbone": "^3.2.3"
+    "carbone": "^3.2.3",
+    "request": "^2.88.2"
   }
 }
