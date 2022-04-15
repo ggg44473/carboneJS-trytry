@@ -4,12 +4,12 @@ const carbone = require('carbone');
 // Data to inject
 var data = [
   {
-    movieName: 'Matrix',
+    movieName: '怪獸與鄧不力多的祕密',
     actors: [
       {
-        firstname: 'Keanu',
-        lastname: 'Reeves',
-        test: 'YO TEST 1',
+        firstname: '小明',
+        lastname: '王',
+        test: '測試一',
       },
       {
         firstname: 'Laurence',
