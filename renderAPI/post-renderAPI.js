@@ -1,11 +1,4 @@
 const request = require('request');
-const fs = require('fs');
-const { get } = require('http');
-
-const bearerToken =
-  'test_eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI1NDkzIiwiYXVkIjoiY2FyYm9uZSIsImV4cCI6MjI4MDcyMzAzMiwiZGF0YSI6eyJpZEFjY291bnQiOjU0OTN9fQ.AaAP91V6vmQzkPRc4Lv8XafrB4T-3T0CvKY7xPNe4EA-STH6TR7gHysTdX9cHHD073sFFFlE2itPnbxjCsZv0mGIAEKLGkdarIKKLTV8caIBEydn31nw0WV077nefs_mxkhQXA1r2XNCqJ0XkQ5rx9ESHH5iWMAmsoi57Io7zgpjZIvU';
-// const templateId =
-//   'f2598dfc63f374e5a9d1d64c949dc5e808a1bb79e0e81fe5acb6ceb2b1218c41';
 
 const data = {
   id: 42,
@@ -50,16 +43,17 @@ const data2 = {
     chinese_name: '小華',
   },
   color: '#FF0000',
+  cat: 'https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png',
 };
 
-module.exports = (templateId, getRenderAPI) =>
+module.exports = (bearerToken, templateId, getRenderAPI) =>
   request.post(
     {
       url: 'https://render.carbone.io/render/' + templateId,
       json: true,
       body: {
         data: data2,
-        convertTo: 'pdf',
+        // convertTo: 'pdf',
       },
       headers: {
         Authorization: 'Bearer ' + bearerToken,
@@ -71,6 +65,6 @@ module.exports = (templateId, getRenderAPI) =>
       // Body contains an error or the render ID
       if (err) return console.log(err);
       console.log(body);
-      getRenderAPI(body.data.renderId);
+      if (body.data) getRenderAPI(body.data.renderId);
     }
   );

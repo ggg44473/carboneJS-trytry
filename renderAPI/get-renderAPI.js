@@ -2,7 +2,7 @@ const request = require('request');
 const fs = require('fs');
 
 let bufferArray = [];
-// const RENDER_ID = 'MTAuMjAuMTEuMzAgICAg-pQVfkNUEP70UkCrt4s7XAcmVwb3J0.pdf';
+const fileName = './renderAPI/results/result.docx';
 
 module.exports = (RENDER_ID) =>
   request
@@ -20,10 +20,7 @@ module.exports = (RENDER_ID) =>
       bufferArray.push(data);
     })
     .on('end', () => {
-      fs.writeFileSync(
-        './renderAPI/results/result.pdf',
-        Buffer.concat(bufferArray)
-      );
+      fs.writeFileSync(fileName, Buffer.concat(bufferArray));
     })
     .on('error', () => {
       // Handle network error
